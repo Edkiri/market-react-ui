@@ -1,15 +1,21 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import useInputForm from '@/hooks/useInputForm';
 import validators from '@/utils/validators';
 import { useState } from 'react';
 import MkInput from '@/components/Core/MkInput';
+import { signup } from '@/api';
+import { useDispatch } from 'react-redux';
+import { login } from '@/store/slices/userSlice';
 
 export default function Signup() {
   const email = useInputForm('', validators.email);
   const password = useInputForm('', validators.password);
-  const name = useInputForm('', validators.minTextLength(4))
+  const name = useInputForm('', validators.minTextLength(4));
   const confirmPassword = useInputForm('');
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -27,9 +33,14 @@ export default function Signup() {
 
     try {
       setLoading(true);
-      // await signup({ email: email.value, password: password.value });
-      console.log({ email: email.value, password: password.value, name: name.value });
+      const { data } = await signup({
+        email: email.value,
+        password: password.value,
+        name: name.value,
+      });
       setLoading(false);
+      dispatch(login(data));
+      navigate('/');
     } catch (err) {
       setLoading(false);
       setError(err.response.data.message);
