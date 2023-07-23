@@ -18,7 +18,7 @@ export default function Header() {
         </button>
         <div className="lg:flex lg:flex-1 lg:justify-end">
           <Link
-            to="/signup"
+            to="/login"
             className="font-semibold leading-6 text-lg text-gray-900 dark:text-white"
           >
             Inicia sesión <span aria-hidden="true">&rarr;</span>
