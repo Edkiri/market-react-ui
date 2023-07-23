@@ -12,7 +12,6 @@ export async function signup({ email, password, name }) {
 }
 
 export async function login({ email, password }) {
-  console.log(email, password)
   const { data } = await axios.post(`${API_URL}/auth/login`, {
     email,
     password,
