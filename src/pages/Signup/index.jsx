@@ -1,12 +1,12 @@
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import useInputForm from '@/hooks/useInputForm';
 import validators from '@/utils/validators';
-import { useState } from 'react';
 import MkInput from '@/components/Core/MkInput';
 import { signup } from '@/api';
-import { useDispatch } from 'react-redux';
-import { login } from '@/store/slices/userSlice';
+import { login } from '@/store/auth/slice';
 
 export default function Signup() {
   const email = useInputForm('', validators.email);

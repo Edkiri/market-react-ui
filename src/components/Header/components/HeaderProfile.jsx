@@ -1,11 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Dropdown } from 'flowbite-react';
 
-import { logout } from '@/store/slices/userSlice';
-import { DropdownDivider } from 'flowbite-react/lib/esm/components/Dropdown/DropdownDivider';
+import { logout } from '@/store/auth/slice';
 
 export default function HeaderProfile() {
-  const username = useSelector((state) => state.user.data.name);
+  const username = useSelector((state) => state.user.credentials.name);
 
   const dispatch = useDispatch();
 
@@ -20,9 +19,9 @@ export default function HeaderProfile() {
         inline
         label={username}
       >
-        <Dropdown.Item className=" text-md">Ver perfil</Dropdown.Item>
-        <Dropdown.Item className=" text-md">Mis pedidos</Dropdown.Item>
-        <Dropdown.Item className=" mt-4 text-md" onClick={handleLogout}>
+        <Dropdown.Item className="text-md">Ver perfil</Dropdown.Item>
+        <Dropdown.Item className="text-md">Mis pedidos</Dropdown.Item>
+        <Dropdown.Item className="mt-4 text-md" onClick={handleLogout}>
           Cerrar sesión
         </Dropdown.Item>
       </Dropdown>

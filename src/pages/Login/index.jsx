@@ -6,7 +6,7 @@ import { login as apiLogin } from '@/api';
 import MkInput from '@/components/Core/MkInput';
 import useInputForm from '@/hooks/useInputForm';
 import validators from '@/utils/validators';
-import { login } from '@/store/slices/userSlice';
+import { login } from '@/store/auth/slice';
 
 export default function Login() {
   const email = useInputForm('', validators.email);

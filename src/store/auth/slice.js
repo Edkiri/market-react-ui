@@ -6,8 +6,6 @@ export const userSlice = createSlice({
     credentials: {
       token: '',
       roleId: '',
-    },
-    data: {
       userId: '',
       name: '',
     },
@@ -17,8 +15,8 @@ export const userSlice = createSlice({
       let { payload } = action;
       state.credentials.token = payload.token;
       state.credentials.roleId = payload.user.role_id;
-      state.data.userId = payload.user.id;
-      state.data.name = payload.user.name;
+      state.credentials.userId = payload.user.id;
+      state.credentials.name = payload.user.name;
     },
     logout: (state) => {
       return {
@@ -26,8 +24,6 @@ export const userSlice = createSlice({
         credentials: {
           token: '',
           roleId: '',
-        },
-        data: {
           userId: '',
           name: '',
         },
@@ -37,6 +33,5 @@ export const userSlice = createSlice({
 });
 
 export const { login, logout } = userSlice.actions;
-export const userData = (state) => state.user.data;
 
 export default userSlice.reducer;

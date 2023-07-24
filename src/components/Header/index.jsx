@@ -6,7 +6,7 @@ import useTheme from './useTheme';
 import HeaderProfile from './components/HeaderProfile';
 
 export default function Header() {
-  const { handleThemeSwitch } = useTheme();
+  const { handleChangeTheme } = useTheme();
   const token = useSelector((state) => state.user.credentials.token);
 
   return (
@@ -28,7 +28,7 @@ export default function Header() {
           </div>
         )}
         <button
-          onClick={handleThemeSwitch}
+          onClick={handleChangeTheme}
           className="text-white bg-black p-3 rounded-full dark:text-black dark:bg-white"
         >
           <FaRegMoon className="fill-black-900 dark:white text-lg" />

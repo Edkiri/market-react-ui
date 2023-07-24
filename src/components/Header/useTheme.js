@@ -1,7 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { changeTheme } from '@/store/theme/slice';
 
 export default function useTheme() {
-  const [theme, setTheme] = useState('dark');
+  const theme = useSelector((state) => state.theme);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (theme === 'dark') {
@@ -11,9 +15,10 @@ export default function useTheme() {
     }
   }, [theme]);
 
-  const handleThemeSwitch = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
+  const handleChangeTheme = () => {
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    dispatch(changeTheme(newTheme));
   };
 
-  return { theme, handleThemeSwitch };
+  return { handleChangeTheme };
 }
