@@ -4,7 +4,7 @@ import { Dropdown } from 'flowbite-react';
 import { logout } from '@/store/auth/slice';
 
 export default function HeaderProfile() {
-  const username = useSelector((state) => state.user.credentials.name);
+  const username = useSelector((state) => state.user.name);
 
   const dispatch = useDispatch();
 

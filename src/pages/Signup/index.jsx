@@ -39,7 +39,14 @@ export default function Signup() {
         name: name.value,
       });
       setLoading(false);
-      dispatch(login(data));
+      dispatch(
+        login({
+          token: data.token,
+          roleId: data.user.role_id,
+          userId: data.user.id,
+          name: data.user.name,
+        }),
+      );
       navigate('/');
     } catch (err) {
       setLoading(false);

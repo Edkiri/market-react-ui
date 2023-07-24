@@ -7,7 +7,7 @@ import HeaderProfile from './components/HeaderProfile';
 
 export default function Header() {
   const { handleChangeTheme } = useTheme();
-  const token = useSelector((state) => state.user.credentials.token);
+  const token = useSelector((state) => state.user.token);
 
   return (
     <header className="py-3 flex items-center justify-between">

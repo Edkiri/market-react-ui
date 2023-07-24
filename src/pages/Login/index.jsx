@@ -31,7 +31,14 @@ export default function Login() {
         password: password.value,
       });
       setLoading(false);
-      dispatch(login(data));
+      dispatch(
+        login({
+          token: data.token,
+          roleId: data.user.role_id,
+          userId: data.user.id,
+          name: data.user.name,
+        }),
+      );
       navigate('/');
     } catch (err) {
       setLoading(false);
