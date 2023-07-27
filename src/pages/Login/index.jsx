@@ -37,6 +37,7 @@ export default function Login() {
           roleId: data.user.role_id,
           userId: data.user.id,
           name: data.user.name,
+          imageKey: data.user.image_key,
         }),
       );
       navigate('/');
