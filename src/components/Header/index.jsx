@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { FaRegMoon } from 'react-icons/fa';
 
-import useTheme from './useTheme';
+import useTheme from './hooks/useTheme';
 import HeaderProfile from './components/HeaderProfile';
 
 export default function Header() {
