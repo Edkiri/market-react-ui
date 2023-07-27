@@ -14,3 +14,8 @@ export async function uploadUserAvatar({ username, file }) {
   );
   return data.data.s3ObjectKey;
 }
+
+export async function getImageByKey({ key }) {
+  const { data } = await axios.post(`${MEDIA_URL}/file`, { key });
+  return data;
+}

@@ -7,6 +7,7 @@ import persistStore from 'redux-persist/es/persistStore';
 
 import { userSlice } from './auth/slice';
 import { themeSlice } from './theme/slice';
+import { productsSlice } from './products/slice';
 
 
 const persistConfig = {
@@ -17,6 +18,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   user: userSlice.reducer,
   theme: themeSlice.reducer,
+  products: productsSlice.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

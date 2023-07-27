@@ -1,3 +1,9 @@
+import ProductsList from '@/components/ProductsList';
+
 export default function Home() {
-  return <h1>HOME</h1>;
+  return (
+    <>
+      <ProductsList />
+    </>
+  );
 }
