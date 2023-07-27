@@ -10,7 +10,7 @@ export default function Header() {
   const token = useSelector((state) => state.user.token);
 
   return (
-    <header className="py-3 flex items-center justify-between border-b border-neutral-800 bg-neutral-200 dark:bg-neutral-800 dark:border-white px-4">
+    <header className="py-3 flex items-center justify-between border-b border-neutral-800 bg-neutral-200 dark:bg-neutral-800 dark:border-neutral-500 px-4">
       <Link to="/">
         <h1 className="text-3xl font-bold underline">Royal Market</h1>
       </Link>

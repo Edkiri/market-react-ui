@@ -6,7 +6,7 @@ export default function DefaultLayout({ children }) {
     <div className="min-h-screen flex flex-col dark:text-white dark:bg-black">
       <div className="flex flex-col grow">
         <Header />
-        <div className="flex grow">
+        <div className="flex grow relative">
           <Sidebar />
           <div className="grow">{children}</div>
         </div>
