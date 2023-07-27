@@ -27,7 +27,7 @@ export default function ProductCard({ product }) {
   };
 
   return (
-    <div className="bg-neutral-200 dark:bg-neutral-800 rounded flex flex-col max-w-xs min-w-xs">
+    <div className="bg-neutral-200 dark:bg-neutral-800 rounded flex flex-col max-w-xs min-w-[200px]">
       <img
         src={image}
         alt={`Imagen de ${product.name}`}

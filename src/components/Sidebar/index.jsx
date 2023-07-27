@@ -12,13 +12,13 @@ export default function Sidebar() {
 
   return (
     <ul
-      className={`p-4 bottom-0 bg-neutral-200 dark:bg-neutral-800 left-0 top-0 right-0 sm:static flex flex-col gap-3 border-r border-neutral-800 dark:border-neutral-500 ${
-        toggleSidebar && 'absolute sm:w-72'
+      className={`py-4 px-2 sm:px-4 bottom-0  left-0 top-0 right-0 sm:static flex flex-col gap-3 border-r border-neutral-800 dark:border-neutral-500 ${
+        toggleSidebar && 'absolute sm:w-72 bg-white dark:bg-black'
       }`}
     >
       <header className="mb-4">
         <button onClick={handleToggle} className="">
-          <BsList className="w-7 h-7 md:w-10 md:h-10" />
+          <BsList className="w-8 h-8 md:w-10 md:h-10" />
         </button>
       </header>
       {toggleSidebar && (

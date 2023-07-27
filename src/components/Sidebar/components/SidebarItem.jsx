@@ -15,7 +15,7 @@ export default function SidebarItem({ link, label, icon, hideSidebar }) {
   return (
     <li>
       <button
-        className="w-full text-md p-2 bg-none rounded-sm text-left  hover:bg-neutral-200 hover:dark:bg-neutral-800 flex items-center gap-2"
+        className="w-full text-md py-2 px-3 bg-none rounded-sm text-left  hover:bg-neutral-200 hover:dark:bg-neutral-800 flex items-center gap-2"
         onClick={hanldleNavigate}
       >
         {icon}
