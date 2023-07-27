@@ -9,6 +9,7 @@ import { userSlice } from './auth/slice';
 import { themeSlice } from './theme/slice';
 import { productsSlice } from './products/slice';
 import { cartSlice } from './cart/slice';
+import { sidebarSlice } from './sidebar/slice';
 
 
 const persistConfig = {
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   theme: themeSlice.reducer,
   products: productsSlice.reducer,
   cart: cartSlice.reducer,
+  sidebar: sidebarSlice.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

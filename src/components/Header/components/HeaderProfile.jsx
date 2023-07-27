@@ -4,12 +4,14 @@ import { useNavigate } from 'react-router-dom';
 
 import { logout } from '@/store/auth/slice';
 import useProfilePic from '../hooks/useProfilePic';
+import useCacheImage from '@/hooks/useCacheImage';
 
 export default function HeaderProfile() {
   const { name } = useSelector((state) => state.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { profilePic } = useProfilePic();
+  const { imageKey } = useSelector((state) => state.user);
+  const { imageSrc: profilePic } = useCacheImage({ key: imageKey });
 
   const handleLogout = () => {
     dispatch(logout());
@@ -18,7 +20,7 @@ export default function HeaderProfile() {
   return (
     <>
       <div className="flex h-full items-center gap-3">
-        <Avatar alt="avatar of Jese" img={profilePic?.url || null} rounded />
+        <Avatar alt="avatar of Jese" img={profilePic} rounded />
         <Dropdown
           className="bg-gray-300 text-black w-52 mt-5"
           inline

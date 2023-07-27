@@ -2,6 +2,7 @@ import SidebarItem from './components/SidebarItem';
 import { FaAppleWhole, FaCartShopping } from 'react-icons/fa6';
 import { BsList } from 'react-icons/bs';
 import { useState } from 'react';
+import { sidebarItems } from '@/utils/constants';
 
 export default function Sidebar() {
   const [toggleSidebar, setToggleSidebar] = useState(false);
@@ -12,8 +13,8 @@ export default function Sidebar() {
 
   return (
     <ul
-      className={`py-4 px-2 sm:px-4 bottom-0  left-0 top-0 right-0 sm:static flex flex-col gap-3 border-r border-neutral-800 dark:border-neutral-500 ${
-        toggleSidebar && 'absolute sm:w-72 bg-white dark:bg-black'
+      className={`py-4 px-2 sm:px-4 bottom-0  left-0 top-0 right-0 sm:static flex flex-col gap-1 border-r border-neutral-800 dark:border-neutral-500 ${
+        toggleSidebar && 'absolute sm:w-96 bg-white dark:bg-black'
       }`}
     >
       <header className="mb-4">
@@ -27,12 +28,14 @@ export default function Sidebar() {
             hideSidebar={() => setToggleSidebar(false)}
             link="/"
             label="Productos"
+            type={sidebarItems.HOME}
             icon={<FaAppleWhole />}
           />
           <SidebarItem
             hideSidebar={() => setToggleSidebar(false)}
             link="/cart"
             label="Carrito"
+            type={sidebarItems.CART}
             icon={<FaCartShopping />}
           />
         </>

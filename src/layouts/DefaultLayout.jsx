@@ -8,7 +8,7 @@ export default function DefaultLayout({ children }) {
         <Header />
         <div className="flex grow relative">
           <Sidebar />
-          <div className="grow p-4 sm:p-8">{children}</div>
+          <div className="grow p-4 md:p-8">{children}</div>
         </div>
       </div>
     </div>
