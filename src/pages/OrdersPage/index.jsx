@@ -23,6 +23,5 @@ export default function OrdersPage() {
     })();
   }, []);
 
-  console.log(orders);
   return <h1>Pedidos</h1>;
 }

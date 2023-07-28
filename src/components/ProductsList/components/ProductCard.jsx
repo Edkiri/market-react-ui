@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { FaCartShopping } from 'react-icons/fa6';
 
 import { addOrder } from '@/store/cart/slice';
@@ -7,11 +7,14 @@ import useCacheImage from '@/hooks/useCacheImage';
 
 export default function ProductCard({ product }) {
   const { imageSrc, loading } = useCacheImage({ key: product.image_key });
+  const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
     dispatch(addOrder(product));
   };
+
+  const quantity = cart.find((item) => item.id === product.id)?.quantity || 0;
 
   return (
     <div className="flex gap-2 md:gap-4 w-full border-b border-neutral-800 dark:border-neutral-500 pb-2 md:pb-4">
@@ -28,10 +31,19 @@ export default function ProductCard({ product }) {
               2,
             )}`}</p>
           </div>
-          <span className="font-bold leading-4 text-gray-700 dark:text-gray-400">{`${'2'}`}</span>
+          {quantity > 0 && (
+            <span className="font-bold leading-4 text-gray-700 dark:text-gray-400">
+              {quantity}
+            </span>
+          )}
         </div>
         <footer className="flex justify-end">
-          <MkButton small label="Agregar" icon={<FaCartShopping />} />
+          <MkButton
+            handleClick={handleAddToCart}
+            small
+            label="Agregar"
+            icon={<FaCartShopping />}
+          />
         </footer>
       </div>
     </div>

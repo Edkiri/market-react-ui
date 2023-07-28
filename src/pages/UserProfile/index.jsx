@@ -66,7 +66,6 @@ export default function UserProfile() {
         setLoading(false);
       }
     } catch (error) {
-      console.log(error);
       setLoading(false);
       setError(error.response.data.message);
     }
@@ -77,7 +76,7 @@ export default function UserProfile() {
       <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-white-900">
         Actualizar perfil
       </h2>
-      <form onSubmit={handleSubmit} className='flex flex-col gap-4' >
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <MkInput id="name" label="Nombre" {...name} />
         <div>
           <label
