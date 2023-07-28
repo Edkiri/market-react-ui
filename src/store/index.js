@@ -10,7 +10,7 @@ import { themeSlice } from './theme/slice';
 import { productsSlice } from './products/slice';
 import { cartSlice } from './cart/slice';
 import { sidebarSlice } from './sidebar/slice';
-
+import { ordersSlice } from './orders/slice';
 
 const persistConfig = {
   key: 'root',
@@ -23,6 +23,7 @@ const rootReducer = combineReducers({
   products: productsSlice.reducer,
   cart: cartSlice.reducer,
   sidebar: sidebarSlice.reducer,
+  orders: ordersSlice.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

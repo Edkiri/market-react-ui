@@ -13,3 +13,12 @@ export async function createOrder({ token, address, phone, orders }) {
   );
   return data;
 }
+
+export async function getSales({ token }) {
+  const { data } = await axios.get(`${API_URL}/sale`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return data;
+}
