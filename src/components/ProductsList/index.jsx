@@ -6,6 +6,7 @@ import ProductCard from './components/ProductCard';
 
 export default function ProductsList() {
   const products = useSelector((state) => state.products);
+  const toggled = useSelector((state) => state.sidebar.toggled);
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -31,7 +32,11 @@ export default function ProductsList() {
 
   return (
     <>
-      <div className="grid max-w-4xl m-auto grid-cols-1 md:grid-cols-2 gap-4 auto-rows-min place-items-center sm:place-items-stretch">
+      <div
+        className={`grid max-w-4xl m-auto grid-cols-1 gap-4 auto-rows-min place-items-center sm:place-items-stretch
+          ${toggled ? 'md:grid-cols-2' : 'grid-cols-1 sm:grid-cols-2'}
+        } `}
+      >
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}

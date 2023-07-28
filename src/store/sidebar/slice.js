@@ -12,14 +12,18 @@ export const sidebarSlice = createSlice({
   name: 'sidebar',
   initialState: {
     selectedItem: sidebarItems.HOME,
+    toggled: false,
   },
   reducers: {
     selectItem: (state, action) => {
       state.selectedItem = action.payload;
     },
+    updateToggled: (state, action) => {
+      state.toggled = action.payload;
+    }
   },
 });
 
-export const { selectItem } = sidebarSlice.actions;
+export const { selectItem, updateToggled } = sidebarSlice.actions;
 
 export default sidebarSlice.reducer;

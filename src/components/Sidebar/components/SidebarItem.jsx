@@ -22,7 +22,7 @@ export default function SidebarItem({ link, label, icon, hideSidebar, type }) {
   return (
     <li>
       <button
-        className={`w-full text-lg tracking-wider py-2 px-3 bg-none rounded-sm text-left hover:bg-neutral-200 hover:dark:bg-neutral-800 flex items-center gap-3 
+        className={`w-full text-lg tracking-wider py-2 px-3 bg-none rounded-sm pr-36 text-left hover:bg-neutral-200 hover:dark:bg-neutral-800 flex items-center gap-3 
         ${selected && 'bg-neutral-200 dark:bg-neutral-800'}`}
         onClick={hanldleNavigate}
       >

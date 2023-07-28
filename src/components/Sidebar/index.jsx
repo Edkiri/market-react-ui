@@ -2,19 +2,22 @@ import SidebarItem from './components/SidebarItem';
 import { FaAppleWhole, FaCartShopping } from 'react-icons/fa6';
 import { BsList, BsFillBagFill } from 'react-icons/bs';
 import { useState } from 'react';
-import { sidebarItems } from '@/store/sidebar/slice';
+import { sidebarItems, updateToggled } from '@/store/sidebar/slice';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function Sidebar() {
-  const [toggleSidebar, setToggleSidebar] = useState(false);
+  const toggled = useSelector(state => state.sidebar.toggled);
+  const dispatch = useDispatch();
+  // const [toggleSidebar, setToggleSidebar] = useState(false);
 
   const handleToggle = () => {
-    setToggleSidebar(!toggleSidebar);
+    dispatch(updateToggled(!toggled));
   };
 
   return (
     <ul
       className={`p-2 md:p-4 min-w-min bottom-0 left-0 top-0 right-0 sm:static flex flex-col gap-1 border-r border-neutral-800 dark:border-neutral-500 ${
-        toggleSidebar && 'absolute min-w-[240px]  bg-white dark:bg-black'
+        toggled && 'absolute min-w-[240px]  bg-white dark:bg-black'
       }`}
     >
       <header className="mb-4">
@@ -22,24 +25,24 @@ export default function Sidebar() {
           <BsList className="w-8 h-8 md:w-10 md:h-10" />
         </button>
       </header>
-      {toggleSidebar && (
+      {toggled && (
         <>
           <SidebarItem
-            hideSidebar={() => setToggleSidebar(false)}
+            hideSidebar={() => dispatch(updateToggled(false))}
             link="/"
             label="Productos"
             type={sidebarItems.HOME}
             icon={<FaAppleWhole />}
           />
           <SidebarItem
-            hideSidebar={() => setToggleSidebar(false)}
+            hideSidebar={() => dispatch(updateToggled(false))}
             link="/cart"
             label="Carrito"
             type={sidebarItems.ORDERS}
             icon={<FaCartShopping />}
           />
           <SidebarItem
-            hideSidebar={() => setToggleSidebar(false)}
+            hideSidebar={() => dispatch(updateToggled(false))}
             link="/orders"
             label="Pedidos"
             type={sidebarItems.CART}
