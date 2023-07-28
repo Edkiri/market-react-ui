@@ -3,7 +3,7 @@ import CartItem from './components/CartItem';
 import OrderForm from './components/OrderForm';
 
 export default function CartPage() {
-  const { cart } = useSelector((state) => state);
+  const cart = useSelector((state) => state.cart);
 
   const total = cart.reduce((val, item) => {
     const { price, quantity } = item;
@@ -23,7 +23,7 @@ export default function CartPage() {
           )}`}</span>
         )}
       </div>
-      <OrderForm />
+      <OrderForm cart={cart} />
     </div>
   );
 }

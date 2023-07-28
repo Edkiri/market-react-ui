@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-
+import { useDispatch } from 'react-redux';
 import { FaCartShopping } from 'react-icons/fa6';
+
 import { addOrder } from '@/store/cart/slice';
-import MkButton from '../Core/MkButton';
+import MkButton from '@/components/Core/MkButton';
 import useCacheImage from '@/hooks/useCacheImage';
 
 export default function ProductCard({ product }) {
@@ -28,7 +27,11 @@ export default function ProductCard({ product }) {
         <div className="font-normal mb-4 text-gray-700 dark:text-gray-400">
           <p>{product.description}</p>
         </div>
-        <MkButton label={"Agregar"} handleClick={handleAddToCart} icon={<FaCartShopping />} />
+        <MkButton
+          label={'Agregar'}
+          handleClick={handleAddToCart}
+          icon={<FaCartShopping />}
+        />
       </div>
     </div>
   );

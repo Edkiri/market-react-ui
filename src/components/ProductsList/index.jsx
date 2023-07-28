@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { usersSuccess } from '@/store/products/slice';
 import { getProducts } from '@/api/products';
-import ProductCard from '../ProductCard';
+import ProductCard from './components/ProductCard';
 
 export default function ProductsList() {
   const products = useSelector((state) => state.products);

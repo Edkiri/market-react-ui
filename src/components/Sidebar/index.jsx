@@ -1,8 +1,8 @@
 import SidebarItem from './components/SidebarItem';
 import { FaAppleWhole, FaCartShopping } from 'react-icons/fa6';
-import { BsList } from 'react-icons/bs';
+import { BsList, BsFillBagFill } from 'react-icons/bs';
 import { useState } from 'react';
-import { sidebarItems } from '@/utils/constants';
+import { sidebarItems } from '@/store/sidebar/slice';
 
 export default function Sidebar() {
   const [toggleSidebar, setToggleSidebar] = useState(false);
@@ -35,8 +35,15 @@ export default function Sidebar() {
             hideSidebar={() => setToggleSidebar(false)}
             link="/cart"
             label="Carrito"
-            type={sidebarItems.CART}
+            type={sidebarItems.ORDERS}
             icon={<FaCartShopping />}
+          />
+          <SidebarItem
+            hideSidebar={() => setToggleSidebar(false)}
+            link="/orders"
+            label="Pedidos"
+            type={sidebarItems.CART}
+            icon={<BsFillBagFill />}
           />
         </>
       )}

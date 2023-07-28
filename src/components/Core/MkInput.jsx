@@ -1,6 +1,6 @@
 export default function MkInput({ label, error, errorMessage, ...inputProps }) {
   return (
-    <div class="w-full">
+    <div className="w-full">
       <label
         htmlFor={inputProps.id}
         className="block text-lg leading-6 text-gray-900 dark:text-white"
