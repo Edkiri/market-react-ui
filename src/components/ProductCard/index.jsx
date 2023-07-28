@@ -15,20 +15,20 @@ export default function ProductCard({ product }) {
   };
 
   return (
-    <div className="bg-neutral-200 dark:bg-neutral-800 rounded flex flex-col max-w-xs min-w-[150px] ">
+    <div className="bg-neutral-200 dark:bg-neutral-800 rounded flex flex-col min-w-full max-w[200px] sm:min-w-min sm:max-w-auto">
       <img
         src={imageSrc}
         alt={`Imagen de ${product.name}`}
-        className="w-full bg-contain bg-center h-full md:max-h-48 min-h-[62px]"
+        className="bg-contain bg-center h-40 w-auto"
       />
-      <div className="flex flex-col justify-end grow py-4 px-2">
+      <div className="flex flex-col justify-end grow p-4">
         <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
           {product.name}
         </h5>
-        <div className="font-normal text-gray-700 dark:text-gray-400">
+        <div className="font-normal mb-4 text-gray-700 dark:text-gray-400">
           <p>{product.description}</p>
         </div>
-        <MkButton handleClick={handleAddToCart} icon={<FaCartShopping />} />
+        <MkButton label={"Agregar"} handleClick={handleAddToCart} icon={<FaCartShopping />} />
       </div>
     </div>
   );

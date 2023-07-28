@@ -1,6 +1,6 @@
 export default function MkInput({ label, error, errorMessage, ...inputProps }) {
   return (
-    <div>
+    <div class="w-full">
       <label
         htmlFor={inputProps.id}
         className="block text-lg leading-6 text-gray-900 dark:text-white"
@@ -9,7 +9,7 @@ export default function MkInput({ label, error, errorMessage, ...inputProps }) {
       </label>
       <div className="mt-2">
         <input
-          className="text-lg px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+          className="text-md block w-full rounded-md border-0 py-2 px-3 dark:text-white text-black dark:bg-neutral-800 shadow-sm ring-1 ring-inset ring-gray-600 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
           type={inputProps.type || 'text'}
           {...inputProps}
         />
