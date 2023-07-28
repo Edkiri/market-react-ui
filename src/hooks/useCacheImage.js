@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 export default function useCacheImage({ key }) {
   const [imageSrc, setImageSrc] = useState('');
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (key) {
@@ -13,14 +14,19 @@ export default function useCacheImage({ key }) {
         },
         body: JSON.stringify({ key }),
       };
+      setLoading(true);
       fetch(`${MEDIA_URL}/file`, requestOptions)
         .then((response) => response.json())
         .then(({ url }) => {
           setImageSrc(url);
+          setLoading(false);
         })
-        .catch((err) => console.error(error));
+        .catch((err) => {
+          setLoading(false);
+          console.error(err);
+        });
     }
   }, [key]);
 
-  return { imageSrc };
+  return { imageSrc, loading };
 }

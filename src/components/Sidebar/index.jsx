@@ -14,7 +14,7 @@ export default function Sidebar() {
   return (
     <ul
       className={`p-2 md:p-4 min-w-min bottom-0 left-0 top-0 right-0 sm:static flex flex-col gap-1 border-r border-neutral-800 dark:border-neutral-500 ${
-        toggleSidebar && 'absolute min-w-[200px]  bg-white dark:bg-black'
+        toggleSidebar && 'absolute min-w-[240px]  bg-white dark:bg-black'
       }`}
     >
       <header className="mb-4">

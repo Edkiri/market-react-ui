@@ -6,7 +6,7 @@ import MkButton from '@/components/Core/MkButton';
 import useCacheImage from '@/hooks/useCacheImage';
 
 export default function ProductCard({ product }) {
-  const { imageSrc } = useCacheImage({ key: product.image_key });
+  const { imageSrc, loading } = useCacheImage({ key: product.image_key });
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
@@ -14,24 +14,25 @@ export default function ProductCard({ product }) {
   };
 
   return (
-    <div className="bg-neutral-200 dark:bg-neutral-800 rounded flex flex-col min-w-full max-w[200px] sm:min-w-min sm:max-w-auto">
+    <div className="flex gap-2 md:gap-4 w-full border-b border-neutral-800 dark:border-neutral-500 pb-2 md:pb-4">
       <img
+        className="rounded w-24 h-16 bg-auto bg-center justify-self-center self-center"
         src={imageSrc}
-        alt={`Imagen de ${product.name}`}
-        className="bg-contain bg-center h-40 w-auto"
+        alt={`image of ${product.name}`}
       />
-      <div className="flex flex-col justify-end grow p-4">
-        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-          {product.name}
-        </h5>
-        <div className="font-normal mb-4 text-gray-700 dark:text-gray-400">
-          <p>{product.description}</p>
+      <div className="flex flex-col w-full">
+        <div className="flex grow">
+          <div className="grow h-full flex flex-col justify-start">
+            <h3 className="text-md font-bold tracking-wide">{product.name}</h3>
+            <p className="font-normal text-md  leading-4 text-gray-700 dark:text-gray-400">{`Є${product.price.toFixed(
+              2,
+            )}`}</p>
+          </div>
+          <span className="font-bold leading-4 text-gray-700 dark:text-gray-400">{`${'2'}`}</span>
         </div>
-        <MkButton
-          label={'Agregar'}
-          handleClick={handleAddToCart}
-          icon={<FaCartShopping />}
-        />
+        <footer className="flex justify-end">
+          <MkButton small label="Agregar" icon={<FaCartShopping />} />
+        </footer>
       </div>
     </div>
   );
