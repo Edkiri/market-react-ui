@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import CartItem from './components/CartItem';
-import MkButton from '@/components/Core/MkButton';
-import MkInput from '@/components/Core/MkInput';
+import OrderForm from './components/OrderForm';
 
 export default function CartPage() {
   const { cart } = useSelector((state) => state);
@@ -24,13 +23,7 @@ export default function CartPage() {
           )}`}</span>
         )}
       </div>
-      <form class="flex flex-col md:flex-row justify-stretch w-full gap-4">
-        <MkInput label="Dirección"/>
-        <MkInput label="Teléfono de contacto"/>
-      </form>
-      <div className="flex w-full justify-center mt-5">
-        <MkButton label="Comprar" stretch />
-      </div>
+      <OrderForm />
     </div>
   );
 }
