@@ -21,10 +21,8 @@ export default function OrdersPage() {
   useEffect(() => {
     (async () => {
       try {
-        if (!orders.length) {
-          const { data } = await getSales({ token });
-          dispatch(ordersSuccess(data.sales));
-        }
+        const { data } = await getSales({ token });
+        dispatch(ordersSuccess(data.sales));
       } catch (error) {
         console.error(error);
       }
@@ -32,19 +30,22 @@ export default function OrdersPage() {
   }, []);
 
   return (
-    <table className='table-auto w-full max-w-lg m-auto text-left text-sm md:text-lg'>
-      <thead className=''>
-        <tr className=''>
+    <div class="table w-full m-auto max-w-2xl text-sm md:text-lg">
+      <div class="table-header-group">
+        <div class="table-row">
           {Object.values(headers).map((header) => (
-            <th className={`border p-2 px-4 border-slate-500 ${header === headers.TOTAL && 'hidden min-[450px]:block'}`} key={header}>{header}</th>
+            <div key={header} class="table-cell text-left border border-slate-600 p-2">
+              {header}
+            </div>
           ))}
-        </tr>
-      </thead>
-      <tbody className=''>
+        </div>
+      </div>
+
+      <div className="table-row-group px-2 py-4">
         {orders.map((order) => (
           <OrderRow order={order} />
         ))}
-      </tbody>
-    </table>
+      </div>
+    </div>
   );
 }

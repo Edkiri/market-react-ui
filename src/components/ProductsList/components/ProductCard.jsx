@@ -32,9 +32,9 @@ export default function ProductCard({ product }) {
         <div className="flex grow">
           <div className="grow h-full flex flex-col justify-start">
             <h3 className="text-md font-bold tracking-wide">{product.name}</h3>
-            <p className="font-normal text-md  leading-4 text-gray-700 dark:text-gray-400">{`Є${product.price.toFixed(
+            <p className="font-normal text-md  leading-4 text-gray-700 dark:text-gray-400">{`${product.price.toFixed(
               2,
-            )}`}</p>
+            )} Є`}</p>
           </div>
           {quantity > 0 && (
             <div className="flex gap-2 items-center h-full">

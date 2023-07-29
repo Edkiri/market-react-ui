@@ -1,14 +1,12 @@
 import SidebarItem from './components/SidebarItem';
 import { FaAppleWhole, FaCartShopping } from 'react-icons/fa6';
 import { BsList, BsFillBagFill } from 'react-icons/bs';
-import { useState } from 'react';
 import { sidebarItems, updateToggled } from '@/store/sidebar/slice';
 import { useDispatch, useSelector } from 'react-redux';
 
 export default function Sidebar() {
   const toggled = useSelector(state => state.sidebar.toggled);
   const dispatch = useDispatch();
-  // const [toggleSidebar, setToggleSidebar] = useState(false);
 
   const handleToggle = () => {
     dispatch(updateToggled(!toggled));

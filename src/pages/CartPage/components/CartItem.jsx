@@ -13,16 +13,16 @@ export default function CartItem({ item }) {
       />
       <div className="grow h-full flex flex-col justify-center">
         <h3 className="text-md font-bold tracking-wide">{item.name}</h3>
-        <span className="font-normal leading-4 text-gray-700 dark:text-gray-400">{`Є${item.price.toFixed(
+        <span className="font-normal leading-4 text-gray-700 dark:text-gray-400">{`${item.price.toFixed(
           2,
-        )} / ${
+        )} Є / ${
           item.measurement === 'unit' ? `Unidad` : item.measurement
         }`}</span>
       </div>
       <div className="flex flex-col h-full justify-center text-right">
-        <h3 className="text-md font-bold tracking-wide">{`Є${total.toFixed(
+        <h3 className="text-md font-bold tracking-wide">{`${total.toFixed(
           2,
-        )}`}</h3>
+        )}`} Є</h3>
         <span className="font-normal leading-4 text-gray-700 dark:text-gray-400">
           {item.quantity}{' '}
           {item.measurement === 'unit'

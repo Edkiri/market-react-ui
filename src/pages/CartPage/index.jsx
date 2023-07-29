@@ -21,9 +21,9 @@ export default function CartPage() {
       <header className="w-full flex flex-col mt-8 justify-between">
         <h1 className="font-bold text-center text-2xl">Resumen</h1>
         {total > 0 && (
-          <p className="text-md font-bold tracking-wide text-right border-b border-neutral-800 dark:border-neutral-500 pb-4">{`Total: Є ${total.toFixed(
+          <p className="text-md font-bold tracking-wide text-right border-b border-neutral-800 dark:border-neutral-500 pb-4">{`Total: ${total.toFixed(
             2,
-          )}`}</p>
+          )}`} Є</p>
         )}
       </header>
       <div className="w-full gap-4 grid grid-cols-1 md:grid-cols-2 auto-rows-min place-items-center sm:place-items-stretch">

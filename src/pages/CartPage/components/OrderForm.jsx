@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import MkButton from '@/components/Core/MkButton';
@@ -7,12 +7,16 @@ import MkInput from '@/components/Core/MkInput';
 import useInputForm from '@/hooks/useInputForm';
 import validators from '@/utils/validators';
 import { createOrder } from '@/api/orders';
+import { selectItem, sidebarItems } from '@/store/sidebar/slice';
+import { clearCart } from '@/store/cart/slice';
 
 export default function OrderForm({ cart }) {
   const token = useSelector((state) => state.user.token);
   const address = useInputForm('', validators.minTextLength(10));
   const phone = useInputForm('', validators.spainPhoneNumber);
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -34,10 +38,13 @@ export default function OrderForm({ cart }) {
         address: address.value,
         phone: phone.value,
       });
+      dispatch(clearCart);
+      dispatch(selectItem(sidebarItems.ORDERS));
       setLoading(false);
       navigate('/orders');
     } catch (error) {
       setLoading(false);
+      console.log(error);
       setError(error.response.data.message);
     }
   };
