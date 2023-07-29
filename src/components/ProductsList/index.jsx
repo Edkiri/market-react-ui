@@ -16,7 +16,7 @@ export default function ProductsList() {
   useEffect(() => {
     (async () => {
       try {
-        if (products.length) {
+        if (!products.length) {
           setLoading(true);
           const { data } = await getProducts();
           setLoading(false);
@@ -34,7 +34,7 @@ export default function ProductsList() {
     <>
       <div
         className={`grid max-w-4xl m-auto grid-cols-1 gap-4 auto-rows-min place-items-center sm:place-items-stretch
-          ${toggled ? 'md:grid-cols-2' : 'grid-cols-1 sm:grid-cols-2'}
+          ${toggled ? 'lg:grid-cols-2' : 'sm:grid-cols-2'}
         } `}
       >
         {products.map((product) => (

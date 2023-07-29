@@ -15,15 +15,20 @@ export default function CartItem({ item }) {
         <h3 className="text-md font-bold tracking-wide">{item.name}</h3>
         <span className="font-normal leading-4 text-gray-700 dark:text-gray-400">{`Є${item.price.toFixed(
           2,
-        )} / und`}</span>
+        )} / ${
+          item.measurement === 'unit' ? `Unidad` : item.measurement
+        }`}</span>
       </div>
       <div className="flex flex-col h-full justify-center text-right">
         <h3 className="text-md font-bold tracking-wide">{`Є${total.toFixed(
           2,
         )}`}</h3>
-        <span className="font-normal leading-4 text-gray-700 dark:text-gray-400">{`${
-          item.quantity
-        } ${item.quantity > 1 ? 'unidades' : 'unidad'}`}</span>
+        <span className="font-normal leading-4 text-gray-700 dark:text-gray-400">
+          {item.quantity}{' '}
+          {item.measurement === 'unit'
+            ? `${item.quantity > 0 ? 'Unidades' : 'Unidad'}`
+            : item.measurement}
+        </span>
       </div>
     </div>
   );

@@ -38,11 +38,17 @@ export default function ProductCard({ product }) {
           </div>
           {quantity > 0 && (
             <div className="flex gap-2 items-center h-full">
-              <button onClick={handleRemoveToCart} className="h-min pointer-events-auto">
+              <button
+                onClick={handleRemoveToCart}
+                className="h-min pointer-events-auto"
+              >
                 <BsFillArrowDownCircleFill size="23" />
               </button>
               <span className="font-bold leading-4 text-gray-700 dark:text-gray-400">
-                {quantity}
+                {quantity}{' '}
+                {product.measurement === 'unit'
+                  ? `${quantity > 0 ? 'Unidades' : 'Unidad'}`
+                  : product.measurement}
               </span>
             </div>
           )}
