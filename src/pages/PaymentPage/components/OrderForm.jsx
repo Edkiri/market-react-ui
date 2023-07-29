@@ -51,7 +51,7 @@ export default function OrderForm({ cart }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col justify-stretch w-full gap-4"
+      className="flex flex-col justify-stretch w-full gap-4 mt-4"
     >
       <div className="flex flex-col md:flex-row gap-4">
         <MkInput label="Dirección" {...address} />

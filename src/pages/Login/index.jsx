@@ -49,14 +49,14 @@ export default function Login() {
 
   return (
     <>
-      <div className="flex min-h-full flex-1 flex-col px-6 lg:px-8">
+      <div className="flex min-h-full flex-1 flex-col lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-white-900">
             Inicia Sesión
           </h2>
         </div>
 
-        <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
+        <div className="mt-4 p-4 sm:mx-auto rounded sm:w-full sm:max-w-sm border border-neutral-500">
           <form className="space-y-4" onSubmit={handleSubmit}>
             <MkInput id="email" label="Dirección de correo" {...email} />
 

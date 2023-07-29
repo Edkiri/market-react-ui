@@ -5,14 +5,17 @@ export const productsSlice = createSlice({
   initialState: {
     products: [],
     categories: [],
-    selectedCategory: 'all',
+    selectedCategory: 'más vendidos',
   },
   reducers: {
     usersSuccess: (state, action) => {
       state.products = action.payload;
     },
     categoriesSuccess: (state, action) => {
-      state.categories = action.payload.categories;
+      state.categories = [
+        { name: 'más vendidos' },
+        ...action.payload.categories,
+      ];
     },
     updateSelectedCategoty: (state, action) => {
       state.selectedCategory = action.payload.category;

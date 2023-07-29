@@ -7,6 +7,8 @@ import Signup from '@/pages/Signup';
 import UserProfile from './pages/UserProfile';
 import CartPage from './pages/CartPage';
 import OrdersPage from './pages/OrdersPage';
+import AuthRoute from './guards/AuthRoute';
+import PaymentPage from './pages/PaymentPage';
 
 function App() {
   return (
@@ -16,8 +18,17 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/my-profile" element={<UserProfile />} />
+        // List of cart items
         <Route path="/cart" element={<CartPage />} />
-        <Route path="/orders" element={<OrdersPage />} />
+        // Protected Orders Page
+        <Route
+          path="/payment"
+          element={<AuthRoute children={<PaymentPage />} />}
+        />
+        <Route
+          path="/orders"
+          element={<AuthRoute children={<OrdersPage />} />}
+        />
       </Routes>
     </DefaultLayout>
   );

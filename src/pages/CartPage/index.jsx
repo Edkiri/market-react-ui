@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux';
 import CartItem from './components/CartItem';
-import OrderForm from './components/OrderForm';
 
 export default function CartPage() {
   const cart = useSelector((state) => state.cart);
@@ -14,14 +13,7 @@ export default function CartPage() {
 
   return (
     <div className="cart-list max-w-4xl m-auto flex flex-col w-full gap-4">
-      <div className="flex flex-col gap-4 max-w-xl m-auto w-full">
-        <h1 className="font-bold text-center text-2xl mb-4">
-          Finaliza tu compra
-        </h1>
-        <OrderForm cart={cart} />
-      </div>
-
-      <header className="w-full flex mt-4 items-center justify-between border-b border-neutral-800 dark:border-neutral-500 pb-4">
+      <header className="w-full flex first-line:items-center justify-between border-b border-neutral-800 dark:border-neutral-500 pb-4">
         <h1 className="font-bold text-center text-2xl">Resumen</h1>
         {total > 0 && (
           <p className="text-md md:text-lg font-bold tracking-wide text-right ">

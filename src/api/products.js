@@ -7,6 +7,15 @@ export async function getProducts() {
   return data;
 }
 
+export async function getProductsByCategory(categoryId) {
+  const { data } = await axios.get(`${API_URL}/product`, {
+    params: {
+      category_id: categoryId,
+    },
+  });
+  return data;
+}
+
 export async function getCategories() {
   const { data } = await axios.get(`${API_URL}/category`);
   return data;

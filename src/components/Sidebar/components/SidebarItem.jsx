@@ -38,9 +38,9 @@ export default function SidebarItem({
             {icon}
             {label}
           </div>
-          {number && (
+          {number > 0 && (
             <span className="text-xs w-7 h-7 flex items-center justify-center rounded-full px-3 font-bold text-black dark:text-white">
-              {number}
+              {number || ''}
             </span>
           )}
         </div>
