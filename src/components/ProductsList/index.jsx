@@ -4,8 +4,8 @@ import { usersSuccess } from '@/store/products/slice';
 import { getProducts } from '@/api/products';
 import ProductCard from './components/ProductCard';
 
-export default function ProductsList() {
-  const products = useSelector((state) => state.products);
+export default function ProductsList({products}) {
+
   const toggled = useSelector((state) => state.sidebar.toggled);
 
   const [loading, setLoading] = useState(false);
@@ -33,7 +33,7 @@ export default function ProductsList() {
   return (
     <>
       <div
-        className={`grid max-w-4xl m-auto grid-cols-1 gap-4 auto-rows-min place-items-center sm:place-items-stretch
+        className={`grid w-full max-w-4xl m-auto grid-cols-1 gap-4 auto-rows-min place-items-center sm:place-items-stretch
           ${toggled ? 'lg:grid-cols-2' : 'sm:grid-cols-2'}
         } `}
       >

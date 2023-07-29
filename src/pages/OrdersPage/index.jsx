@@ -30,13 +30,13 @@ export default function OrdersPage() {
   }, []);
 
   return (
-    <div class="table w-full m-auto max-w-2xl text-sm md:text-lg border border-slate-600">
-      <div class="table-header-group">
-        <div class="table-row">
+    <div className="table w-full m-auto max-w-2xl text-sm md:text-lg border border-slate-600">
+      <div className="table-header-group">
+        <div className="table-row">
           {Object.values(headers).map((header) => (
             <div
               key={header}
-              class="table-cell text-left border border-slate-600 bg-slate-300 dark:bg-slate-700 p-2"
+              className="table-cell text-left border border-slate-600 bg-slate-300 dark:bg-slate-700 p-2"
             >
               {header}
             </div>
@@ -46,7 +46,7 @@ export default function OrdersPage() {
 
       <div className="table-row-group px-2 py-4">
         {orders.map((order) => (
-          <OrderRow order={order} />
+          <OrderRow key={order.id} order={order} />
         ))}
       </div>
     </div>
