@@ -38,13 +38,12 @@ export default function OrderForm({ cart }) {
         address: address.value,
         phone: phone.value,
       });
-      dispatch(clearCart);
       dispatch(selectItem(sidebarItems.ORDERS));
+      dispatch(clearCart());
       setLoading(false);
       navigate('/orders');
     } catch (error) {
       setLoading(false);
-      console.log(error);
       setError(error.response.data.message);
     }
   };
