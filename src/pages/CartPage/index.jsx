@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import CartItem from './components/CartItem';
+import EmptyCart from './components/EmptyCart';
 
 export default function CartPage() {
   const cart = useSelector((state) => state.cart);
@@ -10,6 +11,8 @@ export default function CartPage() {
     const result = Number(price) * Number(quantity);
     return val + result;
   }, 0);
+
+  if (!cart.length) return <EmptyCart />;
 
   return (
     <div className="cart-list max-w-4xl m-auto flex flex-col w-full gap-4">

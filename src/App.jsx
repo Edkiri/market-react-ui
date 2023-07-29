@@ -20,14 +20,14 @@ function App() {
         <Route path="/my-profile" element={<UserProfile />} />
         // List of cart items
         <Route path="/cart" element={<CartPage />} />
-        // Protected Orders Page
-        <Route
-          path="/payment"
-          element={<AuthRoute children={<PaymentPage />} />}
-        />
         <Route
           path="/orders"
           element={<AuthRoute children={<OrdersPage />} />}
+        />
+        // Protected Payment Page
+        <Route
+          path="/payment"
+          element={<AuthRoute children={<PaymentPage />} />}
         />
       </Routes>
     </DefaultLayout>
