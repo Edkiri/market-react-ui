@@ -11,6 +11,7 @@ import AuthRoute from './guards/AuthRoute';
 import PaymentPage from './pages/PaymentPage';
 import AdminRoute from './guards/AdminRoute';
 import AdminOrdersPage from './pages/AdminOrdersPage';
+import CreateProduct from './pages/CreateProduct';
 
 function App() {
   return (
@@ -34,6 +35,10 @@ function App() {
         <Route
           path="/all-orders"
           element={<AdminRoute children={<AdminOrdersPage />} />}
+        />
+        <Route
+          path="/create-product"
+          element={<AdminRoute children={<CreateProduct />} />}
         />
       </Routes>
     </DefaultLayout>

@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-
 export const sidebarItems = {
   HOME: 'home',
   PRODUCTS: 'products',
@@ -8,7 +7,8 @@ export const sidebarItems = {
   ORDERS: 'orders',
   PROFILE: 'my-profile',
   LOGOUT: 'logout',
-  ALL_ORDERS: 'all-orders'
+  ALL_ORDERS: 'all-orders',
+  CREATE_PRODUCT: 'create-product',
 };
 
 export const sidebarSlice = createSlice({
@@ -23,7 +23,7 @@ export const sidebarSlice = createSlice({
     },
     updateToggled: (state, action) => {
       state.toggled = action.payload;
-    }
+    },
   },
 });
 
