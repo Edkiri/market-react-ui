@@ -19,7 +19,7 @@ export default function Sidebar() {
 
   return (
     <div
-      className={`p-2 md:p-4  bg-white dark:bg-black bottom-0 left-0 top-0 right-0 sm:static flex flex-col gap-1 border-r border-neutral-800 dark:border-neutral-500 ${
+      className={`p-2 md:p-4 z-10 bg-white dark:bg-black bottom-0 left-0 top-0 right-0 sm:static flex flex-col gap-1 border-r border-neutral-800 dark:border-neutral-500 ${
         toggled && 'absolute min-w-[320px]'
       }`}
     >

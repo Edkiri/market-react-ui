@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { usersSuccess } from '@/store/products/slice';
-import { getProducts, getProductsByCategory } from '@/api/products';
+import { productsSuccess } from '@/store/products/slice';
+import { getProducts } from '@/api/products';
 import ProductCard from './components/ProductCard';
 
 export default function ProductsList({ products }) {
@@ -20,15 +20,17 @@ export default function ProductsList({ products }) {
       try {
         setLoading(true);
         let data;
-        if (selectedCategory.name === 'más vendidos') {
+        if (selectedCategory.name === 'todas') {
           const response = await getProducts();
           data = response.data;
         } else {
-          const response = await getProductsByCategory(selectedCategory.id);
+          const response = await getProducts({
+            category_id: selectedCategory.id,
+          });
           data = response.data;
         }
         setLoading(false);
-        dispatch(usersSuccess(data.products));
+        dispatch(productsSuccess(data.products));
       } catch (error) {
         console.error(error);
         setLoading(false);

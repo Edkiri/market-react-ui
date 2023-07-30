@@ -5,15 +5,15 @@ export const productsSlice = createSlice({
   initialState: {
     products: [],
     categories: [],
-    selectedCategory: 'más vendidos',
+    selectedCategory: 'todas',
   },
   reducers: {
-    usersSuccess: (state, action) => {
+    productsSuccess: (state, action) => {
       state.products = action.payload;
     },
     categoriesSuccess: (state, action) => {
       state.categories = [
-        { name: 'más vendidos' },
+        { name: 'todas' },
         ...action.payload.categories,
       ];
     },
@@ -23,7 +23,7 @@ export const productsSlice = createSlice({
   },
 });
 
-export const { usersSuccess, categoriesSuccess, updateSelectedCategoty } =
+export const { productsSuccess, categoriesSuccess, updateSelectedCategoty } =
   productsSlice.actions;
 
 export default productsSlice.reducer;

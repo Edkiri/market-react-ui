@@ -20,17 +20,17 @@ export default function useInputForm(initialValue, validator) {
     if (!isValid) setError(true);
   };
 
-  let errorMessage = '';
-  if (validator) {
-    errorMessage = validator.errorMessage;
-  }
-
-  return {
+  const props = {
     value,
-    error,
-    errorMessage,
     onChange: handleChange,
     onBlur: handleBlur,
     maxLength: 200,
   };
+  
+  if (validator) {
+    props.errorMessage = validator.errorMessage;
+    props.error = error;
+  }
+
+  return props;
 }
