@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { FaRegMoon } from 'react-icons/fa';
 
 import useTheme from './hooks/useTheme';
-import HeaderProfile from './components/HeaderProfile';
 
 export default function Header() {
   const { handleChangeTheme } = useTheme();
@@ -12,7 +11,7 @@ export default function Header() {
   return (
     <header className="py-3 flex items-center justify-between border-b border-neutral-800 bg-neutral-200 dark:bg-neutral-800 dark:border-neutral-500 px-4">
       <Link to="/">
-        <h1 className="text-3xl font-bold underline">Royal Market</h1>
+        <h1 className="text-3xl font-bold underline">Reactive market</h1>
       </Link>
       <div className="right flex items-center gap-10">
         {!token && (
