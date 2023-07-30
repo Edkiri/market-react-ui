@@ -9,6 +9,8 @@ import CartPage from './pages/CartPage';
 import OrdersPage from './pages/OrdersPage';
 import AuthRoute from './guards/AuthRoute';
 import PaymentPage from './pages/PaymentPage';
+import AdminRoute from './guards/AdminRoute';
+import AdminOrdersPage from './pages/AdminOrdersPage';
 
 function App() {
   return (
@@ -28,6 +30,10 @@ function App() {
         <Route
           path="/payment"
           element={<AuthRoute children={<PaymentPage />} />}
+        />
+        <Route
+          path="/all-orders"
+          element={<AdminRoute children={<AdminOrdersPage />} />}
         />
       </Routes>
     </DefaultLayout>

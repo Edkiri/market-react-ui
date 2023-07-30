@@ -20,7 +20,7 @@ export default function SidebarUser() {
   };
 
   return (
-    <ul className="flex flex-col mt-4">
+    <ul className="flex flex-col">
       <h1 className="font-semibold p-2">Perfil</h1>
       <SidebarItem
         link="/orders"
@@ -38,7 +38,7 @@ export default function SidebarUser() {
         handleClick={handleLogout}
         link="/"
         label="Cerrar sessión"
-        type={sidebarItems.HOME}
+        type={sidebarItems.LOGOUT}
         icon={<BsArrowBarLeft />}
       />
     </ul>

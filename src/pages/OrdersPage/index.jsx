@@ -3,16 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { getSales } from '@/api/orders';
 import { ordersSuccess } from '@/store/orders/slice';
-import OrderRow from './components/OrderRow';
 import { MkSpinner } from '@/components/Core';
 import OrdersEmpty from './components/OrdersEmpty';
-
-const headers = {
-  STATUS: 'Estado',
-  DATE: 'Fecha',
-  TOTAL: 'Total',
-  ACTIONS: 'Acciones',
-};
+import OrdersTable from '@/components/OrdersTable';
 
 export default function OrdersPage() {
   const orders = useSelector((state) => state.orders);
@@ -39,26 +32,5 @@ export default function OrdersPage() {
 
   if (!orders.length) return <OrdersEmpty />;
 
-  return (
-    <div className="table w-full m-auto max-w-2xl text-sm md:text-lg border border-slate-600">
-      <div className="table-header-group">
-        <div className="table-row">
-          {Object.values(headers).map((header) => (
-            <div
-              key={header}
-              className="table-cell text-left border border-slate-600 bg-slate-300 dark:bg-slate-700 p-2"
-            >
-              {header}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="table-row-group px-2 py-4">
-        {orders.map((order) => (
-          <OrderRow key={order.id} order={order} />
-        ))}
-      </div>
-    </div>
-  );
+  return <OrdersTable orders={orders} />;
 }

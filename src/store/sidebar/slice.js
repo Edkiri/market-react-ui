@@ -8,6 +8,7 @@ export const sidebarItems = {
   ORDERS: 'orders',
   PROFILE: 'my-profile',
   LOGOUT: 'logout',
+  ALL_ORDERS: 'all-orders'
 };
 
 export const sidebarSlice = createSlice({

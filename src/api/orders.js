@@ -22,3 +22,12 @@ export async function getSales({ token }) {
   });
   return data;
 }
+
+export async function getAllOrders({ token }) {
+  const { data } = await axios.get(`${API_URL}/admin/sale`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return data;
+}
