@@ -1,5 +1,6 @@
 import useScreenWidth from '@/hooks/useScreenWidth';
-import { selectItem } from '@/store/sidebar/slice';
+import { selectItem, updateToggled } from '@/store/sidebar/slice';
+import { BsFillPersonFill } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,9 +8,10 @@ export default function SidebarItem({
   link,
   label,
   icon,
-  hideSidebar,
   type,
   number,
+  image,
+  handleClick,
 }) {
   const { selectedItem } = useSelector((state) => state.sidebar);
   const navigate = useNavigate();
@@ -18,13 +20,20 @@ export default function SidebarItem({
 
   const hanldleNavigate = () => {
     if (screenWidth < 640) {
-      hideSidebar();
+      dispatch(updateToggled(false));
     }
     dispatch(selectItem(type));
     navigate(link);
+    if (handleClick) {
+      handleClick();
+    }
   };
 
   const selected = selectedItem === type;
+
+  if (!icon && !image) {
+    icon = <BsFillPersonFill />;
+  }
 
   return (
     <li className="w-full">
@@ -34,8 +43,15 @@ export default function SidebarItem({
         onClick={hanldleNavigate}
       >
         <div className="flex w-full items-center justify-between">
-          <div className='flex gap-2 items-center'>
-            {icon}
+          <div className="flex gap-2 items-center">
+            {icon && icon}
+            {image && (
+              <img
+                className="w-5 h-5 bg-cover rounded-full"
+                src={image}
+                alt={`Profile image`}
+              />
+            )}
             {label}
           </div>
           {number > 0 && (

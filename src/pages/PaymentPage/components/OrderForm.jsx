@@ -10,8 +10,9 @@ import { createOrder } from '@/api/orders';
 import { selectItem, sidebarItems } from '@/store/sidebar/slice';
 import { clearCart } from '@/store/cart/slice';
 
-export default function OrderForm({ cart }) {
+export default function OrderForm() {
   const token = useSelector((state) => state.user.token);
+  const cart = useSelector((state) => state.cart);
   const address = useInputForm('', validators.minTextLength(10));
   const phone = useInputForm('', validators.spainPhoneNumber);
   const navigate = useNavigate();
@@ -51,7 +52,7 @@ export default function OrderForm({ cart }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col justify-stretch w-full gap-4 mt-4"
+      className="flex flex-col justify-stretch w-full gap-4 mt-4 border border-neutral-700 p-4 rounded"
     >
       <div className="flex flex-col md:flex-row gap-4">
         <MkInput label="Dirección" {...address} />

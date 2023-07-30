@@ -72,7 +72,7 @@ export default function UserProfile() {
   };
 
   return (
-    <div className="flex flex-col justify-center p-4 gap-4 max-w-lg m-auto">
+    <div className="flex flex-col justify-center gap-4 max-w-lg m-auto">
       <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-white-900">
         Actualizar perfil
       </h2>
@@ -87,6 +87,7 @@ export default function UserProfile() {
           </label>
           <div className="mt-2">
             <input
+            className='min-w-0'
               id="file"
               type="file"
               accept=".jpg, .jpeg, .png, .pdf"
@@ -97,7 +98,7 @@ export default function UserProfile() {
         <button
           type="submit"
           disabled={loading}
-          className="flex w-full mt-8 justify-center rounded-md bg-indigo-600 p-3 text-xl font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          className="flex w-full mt-8 justify-center rounded-md bg-indigo-600 p-2 text-lg font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
           Actualizar
         </button>

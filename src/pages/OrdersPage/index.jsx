@@ -1,9 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getSales } from '@/api/orders';
 import { ordersSuccess } from '@/store/orders/slice';
 import OrderRow from './components/OrderRow';
+import { MkSpinner } from '@/components/Core';
+import OrdersEmpty from './components/OrdersEmpty';
 
 const headers = {
   STATUS: 'Estado',
@@ -17,17 +19,25 @@ export default function OrdersPage() {
   const token = useSelector((state) => state.user.token);
 
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     (async () => {
       try {
+        setLoading(true);
         const { data } = await getSales({ token });
+        setLoading(false);
         dispatch(ordersSuccess(data.sales));
       } catch (error) {
+        setLoading(false);
         console.error(error);
       }
     })();
   }, []);
+
+  if (loading) return <MkSpinner />;
+
+  if (!orders.length) return <OrdersEmpty />;
 
   return (
     <div className="table w-full m-auto max-w-2xl text-sm md:text-lg border border-slate-600">

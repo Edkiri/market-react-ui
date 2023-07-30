@@ -1,5 +1,9 @@
 import { Spinner } from 'flowbite-react';
 
 export default function MkSpinner() {
-  return <Spinner aria-label="Default status example" />;
+  return (
+    <div className='w-full flex justify-center items-center'>
+      <Spinner aria-label="Default status example" />
+    </div>
+  );
 }

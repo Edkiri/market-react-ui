@@ -15,9 +15,7 @@ export default function Header() {
         <h1 className="text-3xl font-bold underline">Royal Market</h1>
       </Link>
       <div className="right flex items-center gap-10">
-        {token ? (
-          <HeaderProfile />
-        ) : (
+        {!token && (
           <div className="lg:flex lg:flex-1 lg:justify-end">
             <Link
               to="/login"

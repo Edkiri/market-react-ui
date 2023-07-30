@@ -3,10 +3,12 @@ import { FaAppleWhole, FaCartShopping } from 'react-icons/fa6';
 import { BsList, BsFillBagFill } from 'react-icons/bs';
 import { sidebarItems, updateToggled } from '@/store/sidebar/slice';
 import { useDispatch, useSelector } from 'react-redux';
+import SidebarUser from './components/SidebarUser';
 
 export default function Sidebar() {
   const toggled = useSelector((state) => state.sidebar.toggled);
   const cart = useSelector((state) => state.cart);
+  const token = useSelector((state) => state.user.token);
   const dispatch = useDispatch();
 
   const handleToggle = () => {
@@ -32,30 +34,22 @@ export default function Sidebar() {
         {toggled && (
           <>
             <SidebarItem
-              hideSidebar={() => dispatch(updateToggled(false))}
               link="/"
               label="Productos"
               type={sidebarItems.HOME}
               icon={<FaAppleWhole />}
             />
             <SidebarItem
-              hideSidebar={() => dispatch(updateToggled(false))}
               link="/cart"
               label="Carrito"
               type={sidebarItems.CART}
               icon={<FaCartShopping />}
               number={cartTotal}
             />
-            <SidebarItem
-              hideSidebar={() => dispatch(updateToggled(false))}
-              link="/orders"
-              label="Pedidos"
-              type={sidebarItems.ORDERS}
-              icon={<BsFillBagFill />}
-            />
           </>
         )}
       </ul>
+      {toggled && token && <SidebarUser />}
     </div>
   );
 }

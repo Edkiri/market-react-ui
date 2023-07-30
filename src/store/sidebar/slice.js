@@ -5,7 +5,9 @@ export const sidebarItems = {
   HOME: 'home',
   PRODUCTS: 'products',
   CART: 'cart',
-  ORDERS: 'orders'
+  ORDERS: 'orders',
+  PROFILE: 'my-profile',
+  LOGOUT: 'logout',
 };
 
 export const sidebarSlice = createSlice({
