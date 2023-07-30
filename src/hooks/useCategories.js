@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getCategories } from '@/api/products';
+import { categoriesSuccess } from '@/store/products/slice';
 
 export default function useCategories() {
   const categories = useSelector((state) => state.products.categories);
@@ -15,7 +16,7 @@ export default function useCategories() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if(categories.length) return;
+    if (categories.length) return;
     (async () => {
       try {
         setLoading(true);
