@@ -37,7 +37,7 @@ export default function SidebarUser() {
       <SidebarItem
         handleClick={handleLogout}
         link="/"
-        label="Cerrar sessión"
+        label="Cerrar sesión"
         type={sidebarItems.LOGOUT}
         icon={<BsArrowBarLeft />}
       />
