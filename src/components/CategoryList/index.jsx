@@ -8,7 +8,7 @@ export default function CategoryList() {
   const dispatch = useDispatch();
 
   const categoryStyle =
-    'min-w-max px-2 py-1 text-sm bg-gray-300 dark:bg-gray-700 text-black dark:text-white rounded-full hover:bg-indigo-300 hover:dark:bg-indigo-500';
+    'px-2 py-1 text-sm min-w-max bg-gray-300 dark:bg-gray-700 text-black dark:text-white rounded-full hover:bg-indigo-300 hover:dark:bg-indigo-500';
 
   const handleChangeCategory = (category) => {
     dispatch(updateSelectedCategoty({ category }));

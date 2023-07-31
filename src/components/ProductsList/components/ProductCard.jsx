@@ -27,6 +27,7 @@ export default function ProductCard({ product }) {
         <img
           className="rounded h-20 w-full object-cover justify-self-center self-center"
           src={imageSrc}
+          loading='lazy'
           alt={`image of ${product.name}`}
         />
       </div>

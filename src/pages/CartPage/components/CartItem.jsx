@@ -10,6 +10,7 @@ export default function CartItem({ item }) {
         <img
           className="rounded h-12 w-full object-cover justify-self-center self-center"
           src={imageSrc}
+          loading='lazy'
           alt={`image of ${item.name}`}
         />
       </div>
