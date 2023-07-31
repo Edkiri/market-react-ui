@@ -20,8 +20,7 @@ export default function CategoryList() {
         <MkSpinner />
       ) : (
         <>
-          <ul className="flex flex-wrap gap-2 my-2">
-            <h1 className="font-bold">Categorías: </h1>
+          <ul className="flex flex-wrap gap-2 pb-4 border-b border-neutral-500">
             {categories.map((category) => (
               <button
                 onClick={() => handleChangeCategory(category)}

@@ -23,11 +23,13 @@ export default function ProductCard({ product }) {
 
   return (
     <div className="flex gap-2 md:gap-4 w-full border-b border-neutral-800 dark:border-neutral-500 pb-2 md:pb-4">
-      <img
-        className="rounded w-28 h-16 justify-self-center self-center"
-        src={imageSrc}
-        alt={`image of ${product.name}`}
-      />
+      <div className='w-40'>
+        <img
+          className="rounded h-20 w-full object-cover justify-self-center self-center"
+          src={imageSrc}
+          alt={`image of ${product.name}`}
+        />
+      </div>
       <div className="flex flex-col w-full gap-2">
         <div className="flex grow">
           <div className="grow h-full flex flex-col justify-start">

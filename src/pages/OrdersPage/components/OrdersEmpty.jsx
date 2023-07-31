@@ -1,5 +1,5 @@
 import { MkButton } from '@/components/Core';
-import { selectItem } from '@/store/sidebar/slice';
+import { selectItem, sidebarItems } from '@/store/sidebar/slice';
 import { BsBagXFill, BsPlusLg } from 'react-icons/bs';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -19,7 +19,7 @@ export default function OrdersEmpty() {
         <BsBagXFill className="" />
       </div>
       <p className="text-lg text-center max-w-sm">
-        Parece que aún no has agregado ningún producto a tu carrito.
+        Parece que aún no has hecho ningún pedido
       </p>
       <MkButton
         handleClick={handleGoToProducts}

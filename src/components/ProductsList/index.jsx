@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { productsSuccess } from '@/store/products/slice';
 import { getProducts } from '@/api/products';
 import ProductCard from './components/ProductCard';
+import { MkSpinner } from '../Core';
+import EmptyProducts from './components/EmptyProducts';
 
 export default function ProductsList({ products }) {
   const selectedCategory = useSelector(
@@ -38,6 +40,10 @@ export default function ProductsList({ products }) {
       }
     })();
   }, [selectedCategory]);
+
+  if (loading) return <MkSpinner />;
+
+  if (!loading && !products.length) return <EmptyProducts />;
 
   return (
     <>
