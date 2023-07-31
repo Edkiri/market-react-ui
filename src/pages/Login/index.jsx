@@ -56,7 +56,7 @@ export default function Login() {
           </h2>
         </div>
 
-        <div className="mt-4 p-4 sm:mx-auto rounded sm:w-full sm:max-w-sm border border-neutral-500">
+        <div className="mt-4 p-6 sm:mx-auto rounded sm:w-full sm:max-w-sm border border-neutral-500">
           <form className="space-y-4" onSubmit={handleSubmit}>
             <MkInput id="email" label="Dirección de correo" {...email} />
 

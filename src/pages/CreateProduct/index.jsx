@@ -41,8 +41,7 @@ export default function CreateProduct() {
       setLoading(false);
     } catch (error) {
       setLoading(false);
-      console.log(error);
-      // setError(error.response.data.message);
+      setError(error.response.data.message);
     }
   };
 
@@ -60,7 +59,7 @@ export default function CreateProduct() {
       <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-white-900">
         Añadir producto
       </h2>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4 border p-6 rounded border-neutral-500">
         <MkInput id="name" label="Nombre" {...name} />
         <MkInput id="description" label="Descripción" {...description} />
         <MkInput id="price" label="Precio" {...price} />

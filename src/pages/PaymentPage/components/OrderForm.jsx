@@ -7,17 +7,12 @@ import MkInput from '@/components/Core/MkInput';
 import useInputForm from '@/hooks/useInputForm';
 import validators from '@/utils/validators';
 import { createOrder } from '@/api/orders';
-import { selectItem, sidebarItems } from '@/store/sidebar/slice';
-import { clearCart } from '@/store/cart/slice';
 
-export default function OrderForm() {
+export default function OrderForm({ onSuccess }) {
   const token = useSelector((state) => state.user.token);
   const cart = useSelector((state) => state.cart);
   const address = useInputForm('', validators.minTextLength(10));
   const phone = useInputForm('', validators.spainPhoneNumber);
-  const navigate = useNavigate();
-
-  const dispatch = useDispatch();
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -39,10 +34,8 @@ export default function OrderForm() {
         address: address.value,
         phone: phone.value,
       });
-      dispatch(selectItem(sidebarItems.ORDERS));
-      dispatch(clearCart());
       setLoading(false);
-      navigate('/orders');
+      onSuccess();
     } catch (error) {
       setLoading(false);
       setError(error.response.data.message);
@@ -52,9 +45,9 @@ export default function OrderForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col justify-stretch w-full gap-4 mt-4 border border-neutral-700 p-4 rounded"
+      className="flex flex-col justify-stretch w-full gap-4 mt-4 border border-neutral-700 p-6 rounded"
     >
-      <div className="flex flex-col md:flex-row gap-4">
+      <div className="flex flex-col lg:flex-row gap-4">
         <MkInput label="Dirección" {...address} />
         <MkInput label="Teléfono de contacto" {...phone} />
       </div>

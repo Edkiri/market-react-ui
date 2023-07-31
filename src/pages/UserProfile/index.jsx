@@ -14,6 +14,7 @@ export default function UserProfile() {
   const name = useInputForm(username, validators.minTextLength(4));
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [updated, setUpdate] = useState(false);
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -27,6 +28,7 @@ export default function UserProfile() {
     try {
       if (selectedFile) {
         setLoading(true);
+        setUpdate(false);
         setError('');
         const s3ObjectKey = await uploadUserAvatar({
           username,
@@ -46,6 +48,7 @@ export default function UserProfile() {
           }),
         );
         setLoading(false);
+        setUpdate(true);
         return;
       }
       if (name.value !== username) {
@@ -64,6 +67,7 @@ export default function UserProfile() {
           }),
         );
         setLoading(false);
+        setUpdate(true);
       }
     } catch (error) {
       setLoading(false);
@@ -76,7 +80,7 @@ export default function UserProfile() {
       <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-white-900">
         Actualizar perfil
       </h2>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4 border rounded p-6 border-neutral-500">
         <MkInput id="name" label="Nombre" {...name} />
         <div>
           <label
@@ -87,7 +91,6 @@ export default function UserProfile() {
           </label>
           <div className="mt-2">
             <input
-            className='min-w-0'
               id="file"
               type="file"
               accept=".jpg, .jpeg, .png, .pdf"
@@ -104,6 +107,9 @@ export default function UserProfile() {
         </button>
         {error && (
           <span className="block text-red-500 mt-4 text-center">{error}</span>
+        )}
+        {updated && (
+          <span className="block text-green-500 mt-4 text-center">Perfil actualizado exitosamente</span>
         )}
       </form>
     </div>
