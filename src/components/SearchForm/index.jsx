@@ -18,7 +18,11 @@ export default function SearchForm() {
     try {
       setLoading(true);
       const response = await getProducts({ name: searchInput.value });
-      dispatch(productsSuccess(response.data.products));
+      dispatch(productsSuccess({
+        products: response.data.products,
+        currentPage: 1,
+        lastPage: response.data.last_page,
+      }));
       setLoading(false);
     } catch (error) {
       console.error(error);

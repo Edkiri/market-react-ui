@@ -19,7 +19,7 @@ export default function OrdersEmpty() {
         <BsBagXFill className="" />
       </div>
       <p className="text-lg text-center max-w-sm">
-        Parece que aún no has hecho ningún pedido
+        Aún no has hecho ningún pedido
       </p>
       <MkButton
         handleClick={handleGoToProducts}

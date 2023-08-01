@@ -19,7 +19,7 @@ export default function EmptyCart() {
         <BsCartXFill className="" />
       </div>
       <p className="text-lg text-center max-w-sm">
-        Parece que aún no has agregado ningún producto a tu carrito.
+        Aún no has agregado ningún producto a tu carrito.
       </p>
       <MkButton
         handleClick={handleGoToProducts}
