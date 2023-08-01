@@ -27,6 +27,7 @@ export const productsSlice = createSlice({
     },
     updateSelectedCategoty: (state, action) => {
       state.filters.category_id = action.payload.categoryId;
+      state.filters.page = 1;
     },
     changePage: (state, action) => {
       state.filters.page = action.payload.page;
@@ -34,6 +35,7 @@ export const productsSlice = createSlice({
     },
     changeName: (state, action) => {
       state.paginate.current = action.payload.name;
+      state.filters.page = 1;
     },
   },
 });

@@ -18,6 +18,7 @@ export default function SearchForm() {
     try {
       setLoading(true);
       const response = await getProducts({ name: searchInput.value });
+      console.log(response);
       dispatch(productsSuccess({
         products: response.data.products,
         currentPage: 1,
