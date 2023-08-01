@@ -3,7 +3,11 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   products: [],
   categories: [],
-  selectedCategory: 'todas',
+  filters: {
+    page: 1,
+    name: '',
+    category_id: '',
+  },
   paginate: {
     current: 1,
     lastPage: 1,
@@ -22,10 +26,14 @@ export const productsSlice = createSlice({
       state.categories = [{ name: 'todas' }, ...action.payload.categories];
     },
     updateSelectedCategoty: (state, action) => {
-      state.selectedCategory = action.payload.category;
+      state.filters.category_id = action.payload.categoryId;
     },
     changePage: (state, action) => {
+      state.filters.page = action.payload.page;
       state.paginate.current = action.payload.page;
+    },
+    changeName: (state, action) => {
+      state.paginate.current = action.payload.name;
     },
   },
 });
@@ -35,6 +43,7 @@ export const {
   categoriesSuccess,
   updateSelectedCategoty,
   changePage,
+  changeName,
 } = productsSlice.actions;
 
 export default productsSlice.reducer;

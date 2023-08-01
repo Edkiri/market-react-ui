@@ -6,9 +6,6 @@ import { categoriesSuccess } from '@/store/products/slice';
 
 export default function useCategories() {
   const categories = useSelector((state) => state.products.categories);
-  const selectedCategory = useSelector(
-    (state) => state.products.selectedCategory,
-  );
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -31,5 +28,5 @@ export default function useCategories() {
     })();
   }, []);
 
-  return { categories, selectedCategory, loading, error };
+  return { categories, loading, error };
 }

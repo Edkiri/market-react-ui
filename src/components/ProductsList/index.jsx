@@ -7,11 +7,9 @@ import EmptyProducts from './components/EmptyProducts';
 import Pagination from '../Pagination';
 
 export default function ProductsList({ products }) {
-  const selectedCategory = useSelector(
-    (state) => state.products.selectedCategory,
-  );
   const toggled = useSelector((state) => state.sidebar.toggled);
   const paginate = useSelector(state => state.products.paginate);
+  const filters = useSelector(state => state.products.filters);
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -22,13 +20,7 @@ export default function ProductsList({ products }) {
     (async () => {
       try {
         setLoading(true);
-        const query = {
-          page: paginate.current,
-        };
-        if (selectedCategory.name !== 'todas') {
-          query.category_id = selectedCategory.id;
-        }
-        const response = await getProducts(query);
+        const response = await getProducts(filters);
         setLoading(false);
         dispatch(productsSuccess({
           products: response.data.products,
@@ -40,7 +32,7 @@ export default function ProductsList({ products }) {
         setError(error.response.data.message);
       }
     })();
-  }, [selectedCategory, paginate]);
+  }, [filters]);
 
   if (!loading && !products.length) return <EmptyProducts />;
 
