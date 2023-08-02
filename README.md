@@ -1,8 +1,38 @@
-# React + Vite
+# Reactive market
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend side of an application that manage the orders of a delivery supermarket.
 
-Currently, two official plugins are available:
+## Stack
+* react
+* react-router-dom
+* redux
+* tailwind
+* it depends of two different backends, [market-api](https://github.com/Edkiri/market-api) and [express-s3-api](https://github.com/Edkiri/express-s3-api).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+#### No users
+* Products listing without authentication.
+* Build a cart with products.
+* Filter products by name and category.
+* Products list pagination.
+* Switch between dark and light mode
+
+#### Users
+* Sign up or login as user or admin.
+* Update profile info and picture.
+* Make an order.
+* See orders status.
+* Logout.
+
+### Admin
+* See all orders.
+* Insert new products into the database.
+
+## Preview
+
+#### Dark Mode
+![product-list](./public/dark.png)
+
+#### Light Mode
+![product-list](./public/claro.png)
