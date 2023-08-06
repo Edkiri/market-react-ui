@@ -1,10 +1,11 @@
 import SidebarItem from './components/SidebarItem';
 import { FaAppleWhole, FaCartShopping } from 'react-icons/fa6';
 import { BsList } from 'react-icons/bs';
-import { sidebarItems, updateToggled } from '@/store/sidebar/slice';
+import { updateToggled } from '@/store/sidebar/slice';
 import { useDispatch, useSelector } from 'react-redux';
 import SidebarUser from './components/SidebarUser';
 import SidebarAdmin from './components/SidebarAdmin';
+import { views } from '@/App';
 
 export default function Sidebar() {
   const toggled = useSelector((state) => state.sidebar.toggled);
@@ -38,15 +39,13 @@ export default function Sidebar() {
           <>
             <h1 className="font-semibold p-2">Tienda</h1>
             <SidebarItem
-              link="/"
               label="Productos"
-              type={sidebarItems.HOME}
+              view={views.HOME}
               icon={<FaAppleWhole />}
             />
             <SidebarItem
-              link="/cart"
               label="Carrito"
-              type={sidebarItems.CART}
+              view={views.CART}
               icon={<FaCartShopping />}
               number={cartTotal}
             />

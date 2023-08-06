@@ -1,17 +1,11 @@
-import { MkButton } from '@/components/Core';
-import { selectItem, sidebarItems } from '@/store/sidebar/slice';
 import { BsCartXFill, BsPlusLg } from 'react-icons/bs';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+
+import { MkButton } from '@/components/Core';
+import useAppNavigate from '@/hooks/useAppNavigate';
+import { views } from '@/App';
 
 export default function EmptyCart() {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  const handleGoToProducts = () => {
-    dispatch(selectItem(sidebarItems.HOME));
-    navigate('/');
-  };
+  const navigate = useAppNavigate();
 
   return (
     <section className="w-full m-auto max-w-lg flex flex-col gap-6 mt-8 items-center">
@@ -22,7 +16,7 @@ export default function EmptyCart() {
         Aún no has agregado ningún producto a tu carrito.
       </p>
       <MkButton
-        handleClick={handleGoToProducts}
+        handleClick={() => navigate(views.HOME)}
         label="Agregar al carrito"
         icon={<BsPlusLg />}
       />

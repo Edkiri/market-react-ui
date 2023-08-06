@@ -1,20 +1,20 @@
+import { views } from '@/App';
+import useAppNavigate from '@/hooks/useAppNavigate';
 import useScreenWidth from '@/hooks/useScreenWidth';
-import { selectItem, updateToggled } from '@/store/sidebar/slice';
+import { updateToggled } from '@/store/sidebar/slice';
 import { BsFillPersonFill } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 
 export default function SidebarItem({
-  link,
   label,
   icon,
-  type,
   number,
   image,
   handleClick,
+  view,
 }) {
   const { selectedItem } = useSelector((state) => state.sidebar);
-  const navigate = useNavigate();
+  const navigate = useAppNavigate();
   const dispatch = useDispatch();
   const { screenWidth } = useScreenWidth();
 
@@ -22,14 +22,15 @@ export default function SidebarItem({
     if (screenWidth < 640) {
       dispatch(updateToggled(false));
     }
-    dispatch(selectItem(type));
-    navigate(link);
+    if (view) {
+      navigate(view);
+    }
     if (handleClick) {
       handleClick();
     }
   };
 
-  const selected = selectedItem === type;
+  const selected = selectedItem === view;
 
   if (!icon && !image) {
     icon = <BsFillPersonFill />;

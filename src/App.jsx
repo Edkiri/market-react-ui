@@ -13,31 +13,44 @@ import AdminRoute from './guards/AdminRoute';
 import AdminOrdersPage from './pages/AdminOrdersPage';
 import CreateProduct from './pages/CreateProduct';
 
+export const views = {
+  HOME: '/',
+  LOGIN: '/login',
+  SIGNUP: '/signup',
+  LOGOUT: '/logout',
+  MY_PROFILE: '/my-profile',
+  CART: '/cart',
+  ORDERS: '/orders',
+  PAYMENT: '/payment',
+  ALL_ORDERS: '/all-orders',
+  CREATE_PRODUCT: '/create-product',
+};
+
 function App() {
   return (
     <DefaultLayout>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/my-profile" element={<UserProfile />} />
+        <Route path={views.HOME} element={<Home />} />
+        <Route path={views.LOGIN} element={<Login />} />
+        <Route path={views.SIGNUP} element={<Signup />} />
+        <Route path={views.MY_PROFILE} element={<UserProfile />} />
         // List of cart items
-        <Route path="/cart" element={<CartPage />} />
+        <Route path={views.CART} element={<CartPage />} />
         <Route
-          path="/orders"
+          path={views.ORDERS}
           element={<AuthRoute children={<OrdersPage />} />}
         />
         // Protected Payment Page
         <Route
-          path="/payment"
+          path={views.PAYMENT}
           element={<AuthRoute children={<PaymentPage />} />}
         />
         <Route
-          path="/all-orders"
+          path={views.ALL_ORDERS}
           element={<AdminRoute children={<AdminOrdersPage />} />}
         />
         <Route
-          path="/create-product"
+          path={views.CREATE_PRODUCT}
           element={<AdminRoute children={<CreateProduct />} />}
         />
       </Routes>

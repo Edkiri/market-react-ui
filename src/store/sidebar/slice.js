@@ -1,20 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const sidebarItems = {
-  HOME: 'home',
-  PRODUCTS: 'products',
-  CART: 'cart',
-  ORDERS: 'orders',
-  PROFILE: 'my-profile',
-  LOGOUT: 'logout',
-  ALL_ORDERS: 'all-orders',
-  CREATE_PRODUCT: 'create-product',
-};
-
 export const sidebarSlice = createSlice({
   name: 'sidebar',
   initialState: {
-    selectedItem: sidebarItems.HOME,
+    selectedItem: '/',
     toggled: false,
   },
   reducers: {

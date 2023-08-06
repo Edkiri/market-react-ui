@@ -7,6 +7,7 @@ import MkInput from '@/components/Core/MkInput';
 import useInputForm from '@/hooks/useInputForm';
 import validators from '@/utils/validators';
 import { login } from '@/store/auth/slice';
+import { views } from '@/App';
 
 export default function Login() {
   const email = useInputForm('', validators.email);
@@ -40,7 +41,7 @@ export default function Login() {
           imageKey: data.user.image_key,
         }),
       );
-      navigate('/');
+      navigate(views.HOME);
     } catch (err) {
       setLoading(false);
       setError(err.response.data.message);

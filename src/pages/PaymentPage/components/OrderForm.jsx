@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import MkButton from '@/components/Core/MkButton';
 import MkInput from '@/components/Core/MkInput';
